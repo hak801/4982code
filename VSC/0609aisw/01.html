@@ -12,11 +12,47 @@
         function addStar(btn) {
             btn.textContent += '★';
         }
+
+        function onColor(btn) {
+            btn.style.backgroundColor = "magenta";
+            btn.style.color = "white";
+        }
+
+        function outColor(btn) {
+            btn.style.backgroundColor = "green";
+            btn.style.color = "black";
+        }
+
+        let autoCount = 1;
+        function autoChangeImg() {
+            autoCount++;
+            if (autoCount > 5) autoCount = 1;
+            document.getElementById("idol").src = "imgs/idol0" + autoCount + ".jpg";
+        }
+
+        let clickCount = 1;
+        function changeImg(img) {
+            clickCount++;
+            if (clickCount > 5) clickCount = 1;
+            img.src = "imgs/idol0" + clickCount + ".jpg";
+        }
+
+        window.onload = function() {
+            let a1 = document.getElementById("a1");
+            a1.onclick = function() {
+                return false;
+            }
+            setInterval(autoChangeImg, 1000);
+        }
     </script>
 </head>
 <body>
     <button onclick = "alert('인라인 이벤트 모델 1')">인라인 이벤트 모델 1</button><br></br>
     <button onclick = "greet()">인라인 이벤트 모델 2</button><br></br>
     <button onclick = "addStar(this)">별 추가 </button>
+    <button onmouseover = "onColor(this)" onmouseout = "outColor(this)">배경 및 글자색 변경</button>
+    <img id="idol" src="imgs/idol01.jpg" width="480" height="300"><br></br>
+    <img src="imgs/idol01.jpg" width="480" height="300" onclick="changeImg(this)"><br></br>
+    <a href="https://www.naver.com" id="a1">디폴트 이벤트 제거</a>
 </body>
 </html>
