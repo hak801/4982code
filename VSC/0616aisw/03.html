@@ -4,29 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!--jQuery library 설정 -->
     <script src = "https://code.jquery.com/jquery-4.0.0.js"></script>
-    <!--jQuery 문법으로 코드 작성-->
     <script>
-        $(document).ready(
-            function(){
-                $("#box").css({
-                    width: "100px",
-                    height: "100px",
-                    background: "orange"
-            }
-        ).on("click", function(){
-            $(this).css("background", "red");
-        }).on("mouseenter", function(){
-            $(this).css("background", "blue");
-        }).on("mouseleave", function(){
-            $(this).css("background", "orange");
+        $(document).ready(function(){
+            $("h1").click(
+                function(){
+                    $(this).css({
+                        background: "red",
+                        color: "white",
+                        width: "200px",
+                        height: "50px"
+                    });
+                }
+                
+            );
+            $("h1").dblclick(
+                function(){
+                    $(this).css({
+                        background: "",
+                        color: "",
+                        
+                    });
+                }
+                
+            );
         });
-    }
-);    
     </script>
 </head>
 <body>
-    <div id = "box"></div>
+    <h1>Click Here Boom Boom Boom 내 심장이 뛰네</h1>
 </body>
 </html>
